@@ -1,0 +1,1022 @@
+// Importação de fonte
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;900&display=swap");
+
+// reset ---------------------------------------------------
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+// variaveis de cor ---------------------------------------------------
+$dark-bluesy: #2f5072;
+$bluesy: #4381c1;
+$darker-bluesy: #4e4b5c;
+$greeny: #69d97b;
+$whitey: #f6f8fc;
+$yellow: #eed600;
+$greyish: rgb(187, 187, 187);
+
+// pesos de fonte ---------------------------------------------------
+$font-light: 300;
+$font-medium: 500;
+$font-black: 900;
+
+// Components ---------------------------------------------------
+
+.LateralMenu {
+  display: flex;
+  flex-direction: column;
+  background-color: $bluesy;
+  height: 100vh;
+  // width: 500px;
+  width: 20%;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  color: $whitey;
+  position: fixed;
+  left: 0;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 50px;
+    margin-top: 60px;
+    font-weight: $font-medium;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+.button {
+  border: none;
+  color: $whitey;
+  background-color: $bluesy;
+  border-radius: 8px;
+  font-weight: $font-medium;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $dark-bluesy;
+  }
+}
+
+.container {
+  position: absolute;
+  background-color: #4e4b5c93;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modalEspecialista {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 10;
+  position: relative;
+  color: $darker-bluesy;
+
+  p {
+    font-weight: $font-light;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    input {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $greyish;
+      color: $darker-bluesy;
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+
+    &:hover {
+      color: $greyish;
+    }
+  }
+}
+
+.modalEdit {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: $darker-bluesy;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+
+    &:hover {
+      color: $greyish;
+    }
+  }
+
+  p {
+    font-weight: $font-light;
+    margin-top: 5px;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    input,
+    select {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $greyish;
+      color: $darker-bluesy;
+    }
+
+    select {
+      color: $greyish;
+    }
+  }
+
+  .especialistas {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+    .removeDr {
+      border: none;
+      background-color: transparent;
+      margin-left: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+
+    p {
+      font-weight: $font-medium;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 10px;
+
+      button {
+        border: none;
+        width: 15px;
+        height: 15px;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: $bluesy;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 15px;
+
+        &:hover {
+          background-color: $dark-bluesy;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-left: 20px;
+      font-weight: $font-light;
+      text-transform: capitalize;
+
+      li {
+        button {
+          position: relative;
+          top: 5px;
+        }
+      }
+    }
+  }
+}
+
+.modalExit {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: $darker-bluesy;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+
+    &:hover {
+      color: $greyish;
+    }
+  }
+
+  h1 {
+    font-size: 18px;
+    font-weight: $font-light;
+  }
+}
+
+.modalSenhaDr {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: $darker-bluesy;
+  display: flex;
+  flex-direction: column;
+
+  span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+
+    &:hover {
+      color: $greyish;
+    }
+  }
+
+  p {
+    font-weight: $font-light;
+    margin-top: 5px;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    select {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $greyish;
+      color: $greyish;
+    }
+  }
+}
+
+// Error Page --------------------------------------------------
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: $darker-bluesy;
+  font-weight: $font-light;
+  font-size: 40px;
+
+  img {
+    margin-top: 30px;
+    width: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
+
+// Pacientes ---------------------------------------------------
+
+.RetiraSenha {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: center;
+  color: $darker-bluesy;
+
+  img {
+    width: 100px;
+    position: relative;
+    left: -12px;
+    margin-bottom: 20px;
+    margin-top: -40px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-weight: $font-light;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+
+  label {
+    font-size: 14px;
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 25px;
+
+    input,
+    select {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $greyish;
+      color: $darker-bluesy;
+    }
+
+    select {
+      color: $greyish;
+    }
+  }
+
+  .preferencial {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 25px;
+  }
+}
+
+.esperaSenha {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: $darker-bluesy;
+
+  .header {
+    margin-top: 10px;
+  }
+
+  img {
+    width: 100px;
+    position: relative;
+    left: -12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-weight: $font-light;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+
+  .boxSenha {
+    display: flex;
+    flex-direction: column;
+    background-color: $bluesy;
+    color: white;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+    .info {
+      display: flex;
+      gap: 30px;
+
+      .posicao,
+      .tempoMedio {
+        display: flex;
+        flex-direction: column;
+
+        h3 {
+          font-size: 35px;
+        }
+
+        p {
+          font-weight: $font-light;
+          font-size: 13px;
+        }
+      }
+    }
+
+    .senhaBlock {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  .ultimasSenhasContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 0.5px solid rgb(195, 195, 195);
+      padding-bottom: 10px;
+      padding-top: 10px;
+      align-items: center;
+
+      p,
+      strong {
+        font-size: 16px;
+      }
+
+      p {
+        font-weight: $font-light;
+      }
+
+      strong {
+        color: $bluesy;
+      }
+    }
+  }
+}
+
+// ADM ---------------------------------------------------
+
+.Login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: $darker-bluesy;
+
+  .bg {
+    width: 65%;
+    object-fit: cover;
+  }
+
+  .logo {
+    width: 100px;
+    position: relative;
+    left: -12px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  p {
+    font-weight: $font-light;
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 25px;
+  }
+
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    padding: 5%;
+  }
+
+  .especialistas {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      font-weight: $font-medium;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+
+      button {
+        border: none;
+        width: 15px;
+        height: 15px;
+        padding: 12px;
+        border-radius: 50%;
+        background-color: $bluesy;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 15px;
+
+        &:hover {
+          background-color: $dark-bluesy;
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-left: 20px;
+      font-weight: $font-light;
+      text-transform: capitalize;
+    }
+  }
+
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-bottom: 25px;
+
+    input {
+      padding: 15px;
+      border-radius: 5px;
+      border: 1px solid $greyish;
+      color: $darker-bluesy;
+    }
+  }
+}
+
+.dashboard {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  height: 100vh;
+
+  .sideComponent {
+    width: 80%;
+    padding: 0 60px;
+    margin-left: 20%;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: fit-content;
+    margin-top: 20px;
+    align-items: center;
+
+    .dadoClinica-nome {
+      display: flex;
+      gap: 15px;
+      padding-left: 10px;
+      align-items: center;
+      color: $darker-bluesy;
+      font-weight: $font-light;
+
+      span {
+        color: $bluesy;
+        font-weight: $font-medium;
+      }
+
+      .icon {
+        background-color: $bluesy;
+        color: $whitey;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        font-weight: $font-medium;
+      }
+    }
+
+    img {
+      width: 90px;
+    }
+  }
+
+  .home,
+  .chamarSenha {
+    padding: 0 15px;
+    height: fit-content;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+
+  .home {
+    display: flex;
+    gap: 25px;
+    flex-direction: column;
+    color: $darker-bluesy;
+
+    .box {
+      display: flex;
+      gap: 35px;
+      font-weight: $font-light;
+    }
+
+    .graph1 {
+      display: flex;
+      flex-direction: column;
+      width: 60%;
+      text-align: center;
+      gap: 20px;
+
+      .atendimentosBox {
+        display: flex;
+        flex-direction: column;
+        background-color: $whitey;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+        border-radius: 15px;
+        height: 330px;
+
+        .pessoa {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 30px;
+          border-bottom: 1px solid rgba(124, 124, 124, 0.19);
+
+          &:last-of-type {
+            border: none;
+          }
+
+          p {
+            display: flex;
+            align-items: center;
+          }
+
+          .nomePessoa {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+
+            .icon {
+              padding: 25px;
+              background-color: $bluesy;
+              color: $whitey;
+              border-radius: 50%;
+              width: 20px;
+              height: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: $font-medium;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+
+      .lineBox {
+        background-color: $whitey;
+        padding: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 330px;
+        align-items: center;
+      }
+    }
+
+    .graph2 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      width: 40%;
+
+      .donutBox {
+        background-color: $whitey;
+        padding: 20px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+        border-radius: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 330px;
+        align-items: center;
+      }
+    }
+  }
+
+  .chamarSenha {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: $darker-bluesy;
+
+    .date-Btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 15px;
+
+      p {
+        font-size: 25px;
+        color: $bluesy;
+        font-weight: $font-black;
+      }
+    }
+
+    .cards {
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+
+      .card,
+      .card-senha {
+        background-color: $whitey;
+        border-radius: 10px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+      }
+
+      .card-senha {
+        padding: 10px;
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        p {
+          font-weight: $font-light;
+        }
+
+        h1 {
+          background-color: $greeny;
+          color: rgb(255, 255, 255);
+          padding: 5px;
+          border-radius: 10px;
+        }
+      }
+
+      .card {
+        padding: 15px;
+        width: 40%;
+        display: flex;
+        gap: 20px;
+        padding-left: 30px;
+
+        .conteudo {
+          align-self: center;
+          p {
+            font-weight: $font-light;
+          }
+        }
+
+        .icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 5px 15px;
+          border-radius: 10px;
+          height: fit-content;
+          align-self: center;
+          background-color: $yellow;
+        }
+
+        &:last-child {
+          .icon {
+            background-color: $greeny;
+          }
+        }
+      }
+    }
+
+    .senhas {
+      display: flex;
+      flex-direction: column;
+      font-weight: $font-light;
+      margin-top: 10px;
+
+      p {
+        align-self: center;
+      }
+
+      .atendimentosBox {
+        display: flex;
+        flex-direction: column;
+        background-color: $whitey;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+        border-radius: 15px;
+        margin-top: 20px;
+
+        .pessoa {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px 30px;
+          border-bottom: 1px solid rgba(124, 124, 124, 0.19);
+
+          .senhaUsuario {
+            font-weight: $font-black;
+            color: $bluesy;
+          }
+
+          &:last-of-type {
+            border: none;
+          }
+
+          .nomePessoa {
+            display: flex;
+            gap: 20px;
+
+            .icon {
+              padding: 25px;
+              background-color: $bluesy;
+              color: $whitey;
+              border-radius: 50%;
+              width: 20px;
+              height: 20px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: $font-medium;
+              font-size: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Visor ---------------------------------------------------
+
+.Visor {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: $darker-bluesy;
+
+  .bg {
+    width: 65%;
+    object-fit: cover;
+  }
+
+  .conteudo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 35%;
+    padding: 5%;
+    align-items: center;
+
+    .senhaContainer {
+      display: flex;
+      flex-direction: column;
+      background-color: $bluesy;
+      color: white;
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      gap: 50px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+
+      .tempoMedio {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        p {
+          font-size: 15px;
+          font-weight: $font-medium;
+        }
+        h1 {
+          font-size: 45px;
+        }
+      }
+
+      .senhaVisor {
+        display: flex;
+        flex-direction: column;
+
+        p {
+          font-size: 25px;
+        }
+
+        h1 {
+          font-size: 70px;
+        }
+      }
+    }
+
+    .ultimasSenhasContainer {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      margin-top: 40px;
+      gap: 10px;
+
+      ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid $greyish;
+        padding-bottom: 10px;
+        padding-top: 10px;
+
+        p,
+        strong {
+          font-size: 23px;
+        }
+
+        p {
+          font-weight: $font-light;
+        }
+
+        strong {
+          color: $bluesy;
+        }
+      }
+    }
+  }
+
+  .logo {
+    width: 100px;
+    position: relative;
+  }
+}

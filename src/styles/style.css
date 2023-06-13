@@ -1,0 +1,874 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.LateralMenu {
+  display: flex;
+  flex-direction: column;
+  background-color: #4381c1;
+  height: 100vh;
+  width: 20%;
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  color: #f6f8fc;
+  position: fixed;
+  left: 0;
+}
+.LateralMenu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 50px;
+  margin-top: 60px;
+  font-weight: 500;
+}
+.LateralMenu ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.LateralMenu ul li:hover {
+  opacity: 0.7;
+}
+
+.button {
+  border: none;
+  color: #f6f8fc;
+  background-color: #4381c1;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background-color: #2f5072;
+}
+
+.container {
+  position: absolute;
+  background-color: rgba(78, 75, 92, 0.5764705882);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.modalEspecialista {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 10;
+  position: relative;
+  color: #4e4b5c;
+}
+.modalEspecialista p {
+  font-weight: 300;
+}
+.modalEspecialista .input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.modalEspecialista .input input {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  color: #4e4b5c;
+}
+.modalEspecialista span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+.modalEspecialista span:hover {
+  color: rgb(187, 187, 187);
+}
+
+.modalEdit {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: #4e4b5c;
+  display: flex;
+  flex-direction: column;
+}
+.modalEdit span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+.modalEdit span:hover {
+  color: rgb(187, 187, 187);
+}
+.modalEdit p {
+  font-weight: 300;
+  margin-top: 5px;
+}
+.modalEdit .input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.modalEdit .input input,
+.modalEdit .input select {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  color: #4e4b5c;
+}
+.modalEdit .input select {
+  color: rgb(187, 187, 187);
+}
+.modalEdit .especialistas {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.modalEdit .especialistas .removeDr {
+  border: none;
+  background-color: transparent;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modalEdit .especialistas .removeDr:hover {
+  opacity: 0.5;
+}
+.modalEdit .especialistas p {
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.modalEdit .especialistas p button {
+  border: none;
+  width: 15px;
+  height: 15px;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #4381c1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+.modalEdit .especialistas p button:hover {
+  background-color: #2f5072;
+}
+.modalEdit .especialistas ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 20px;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.modalEdit .especialistas ul li button {
+  position: relative;
+  top: 5px;
+}
+
+.modalExit {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: #4e4b5c;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modalExit span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+.modalExit span:hover {
+  color: rgb(187, 187, 187);
+}
+.modalExit h1 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.modalSenhaDr {
+  background-color: white;
+  padding: 50px;
+  border-radius: 10px;
+  z-index: 1;
+  position: relative;
+  color: #4e4b5c;
+  display: flex;
+  flex-direction: column;
+}
+.modalSenhaDr span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 20px;
+}
+.modalSenhaDr span:hover {
+  color: rgb(187, 187, 187);
+}
+.modalSenhaDr p {
+  font-weight: 300;
+  margin-top: 5px;
+}
+.modalSenhaDr .input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.modalSenhaDr .input select {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  color: rgb(187, 187, 187);
+}
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: #4e4b5c;
+  font-weight: 300;
+  font-size: 40px;
+}
+.errorPage img {
+  margin-top: 30px;
+  width: 100px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.errorPage img:hover {
+  opacity: 0.7;
+}
+
+.RetiraSenha {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  justify-content: center;
+  color: #4e4b5c;
+}
+.RetiraSenha img {
+  width: 100px;
+  position: relative;
+  left: -12px;
+  margin-bottom: 20px;
+  margin-top: -40px;
+}
+.RetiraSenha h1 {
+  font-size: 30px;
+}
+.RetiraSenha p {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 5px;
+}
+.RetiraSenha label {
+  font-size: 14px;
+}
+.RetiraSenha .input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 25px;
+}
+.RetiraSenha .input input,
+.RetiraSenha .input select {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  color: #4e4b5c;
+}
+.RetiraSenha .input select {
+  color: rgb(187, 187, 187);
+}
+.RetiraSenha .preferencial {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.esperaSenha {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #4e4b5c;
+}
+.esperaSenha .header {
+  margin-top: 10px;
+}
+.esperaSenha img {
+  width: 100px;
+  position: relative;
+  left: -12px;
+}
+.esperaSenha h1 {
+  font-size: 30px;
+}
+.esperaSenha p {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.esperaSenha .boxSenha {
+  display: flex;
+  flex-direction: column;
+  background-color: #4381c1;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  gap: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.esperaSenha .boxSenha .info {
+  display: flex;
+  gap: 30px;
+}
+.esperaSenha .boxSenha .info .posicao,
+.esperaSenha .boxSenha .info .tempoMedio {
+  display: flex;
+  flex-direction: column;
+}
+.esperaSenha .boxSenha .info .posicao h3,
+.esperaSenha .boxSenha .info .tempoMedio h3 {
+  font-size: 35px;
+}
+.esperaSenha .boxSenha .info .posicao p,
+.esperaSenha .boxSenha .info .tempoMedio p {
+  font-weight: 300;
+  font-size: 13px;
+}
+.esperaSenha .boxSenha .senhaBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.esperaSenha .boxSenha h1 {
+  font-size: 50px;
+}
+.esperaSenha .ultimasSenhasContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+.esperaSenha .ultimasSenhasContainer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.esperaSenha .ultimasSenhasContainer li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 0.5px solid rgb(195, 195, 195);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  align-items: center;
+}
+.esperaSenha .ultimasSenhasContainer li p,
+.esperaSenha .ultimasSenhasContainer li strong {
+  font-size: 16px;
+}
+.esperaSenha .ultimasSenhasContainer li p {
+  font-weight: 300;
+}
+.esperaSenha .ultimasSenhasContainer li strong {
+  color: #4381c1;
+}
+
+.Login {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: #4e4b5c;
+}
+.Login .bg {
+  width: 65%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Login .logo {
+  width: 100px;
+  position: relative;
+  left: -12px;
+}
+.Login h1 {
+  font-size: 30px;
+}
+.Login p {
+  font-weight: 300;
+  font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+.Login .conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  padding: 5%;
+}
+.Login .especialistas {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.Login .especialistas p {
+  font-weight: 500;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.Login .especialistas p button {
+  border: none;
+  width: 15px;
+  height: 15px;
+  padding: 12px;
+  border-radius: 50%;
+  background-color: #4381c1;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
+}
+.Login .especialistas p button:hover {
+  background-color: #2f5072;
+}
+.Login .especialistas ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-left: 20px;
+  font-weight: 300;
+  text-transform: capitalize;
+}
+.Login .input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 25px;
+}
+.Login .input input {
+  padding: 15px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  color: #4e4b5c;
+}
+
+.dashboard {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  height: 100vh;
+}
+.dashboard .sideComponent {
+  width: 80%;
+  padding: 0 60px;
+  margin-left: 20%;
+}
+.dashboard .header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 20px;
+  align-items: center;
+}
+.dashboard .header .dadoClinica-nome {
+  display: flex;
+  gap: 15px;
+  padding-left: 10px;
+  align-items: center;
+  color: #4e4b5c;
+  font-weight: 300;
+}
+.dashboard .header .dadoClinica-nome span {
+  color: #4381c1;
+  font-weight: 500;
+}
+.dashboard .header .dadoClinica-nome .icon {
+  background-color: #4381c1;
+  color: #f6f8fc;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 500;
+}
+.dashboard .header img {
+  width: 90px;
+}
+.dashboard .home,
+.dashboard .chamarSenha {
+  padding: 0 15px;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 100%;
+  padding-bottom: 30px;
+}
+.dashboard .home {
+  display: flex;
+  gap: 25px;
+  flex-direction: column;
+  color: #4e4b5c;
+}
+.dashboard .home .box {
+  display: flex;
+  gap: 35px;
+  font-weight: 300;
+}
+.dashboard .home .graph1 {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  text-align: center;
+  gap: 20px;
+}
+.dashboard .home .graph1 .atendimentosBox {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f8fc;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+  border-radius: 15px;
+  height: 330px;
+}
+.dashboard .home .graph1 .atendimentosBox .pessoa {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  border-bottom: 1px solid rgba(124, 124, 124, 0.19);
+}
+.dashboard .home .graph1 .atendimentosBox .pessoa:last-of-type {
+  border: none;
+}
+.dashboard .home .graph1 .atendimentosBox .pessoa p {
+  display: flex;
+  align-items: center;
+}
+.dashboard .home .graph1 .atendimentosBox .pessoa .nomePessoa {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.dashboard .home .graph1 .atendimentosBox .pessoa .nomePessoa .icon {
+  padding: 25px;
+  background-color: #4381c1;
+  color: #f6f8fc;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+.dashboard .home .graph1 .lineBox {
+  background-color: #f6f8fc;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 330px;
+  align-items: center;
+}
+.dashboard .home .graph2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  width: 40%;
+}
+.dashboard .home .graph2 .donutBox {
+  background-color: #f6f8fc;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+  border-radius: 15px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 330px;
+  align-items: center;
+}
+.dashboard .chamarSenha {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: #4e4b5c;
+}
+.dashboard .chamarSenha .date-Btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+.dashboard .chamarSenha .date-Btn p {
+  font-size: 25px;
+  color: #4381c1;
+  font-weight: 900;
+}
+.dashboard .chamarSenha .cards {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+}
+.dashboard .chamarSenha .cards .card,
+.dashboard .chamarSenha .cards .card-senha {
+  background-color: #f6f8fc;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+}
+.dashboard .chamarSenha .cards .card-senha {
+  padding: 10px;
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.dashboard .chamarSenha .cards .card-senha p {
+  font-weight: 300;
+}
+.dashboard .chamarSenha .cards .card-senha h1 {
+  background-color: #69d97b;
+  color: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 10px;
+}
+.dashboard .chamarSenha .cards .card {
+  padding: 15px;
+  width: 40%;
+  display: flex;
+  gap: 20px;
+  padding-left: 30px;
+}
+.dashboard .chamarSenha .cards .card .conteudo {
+  align-self: center;
+}
+.dashboard .chamarSenha .cards .card .conteudo p {
+  font-weight: 300;
+}
+.dashboard .chamarSenha .cards .card .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 10px;
+  height: -moz-fit-content;
+  height: fit-content;
+  align-self: center;
+  background-color: #eed600;
+}
+.dashboard .chamarSenha .cards .card:last-child .icon {
+  background-color: #69d97b;
+}
+.dashboard .chamarSenha .senhas {
+  display: flex;
+  flex-direction: column;
+  font-weight: 300;
+  margin-top: 10px;
+}
+.dashboard .chamarSenha .senhas p {
+  align-self: center;
+}
+.dashboard .chamarSenha .senhas .atendimentosBox {
+  display: flex;
+  flex-direction: column;
+  background-color: #f6f8fc;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.43);
+  border-radius: 15px;
+  margin-top: 20px;
+}
+.dashboard .chamarSenha .senhas .atendimentosBox .pessoa {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  border-bottom: 1px solid rgba(124, 124, 124, 0.19);
+}
+.dashboard .chamarSenha .senhas .atendimentosBox .pessoa .senhaUsuario {
+  font-weight: 900;
+  color: #4381c1;
+}
+.dashboard .chamarSenha .senhas .atendimentosBox .pessoa:last-of-type {
+  border: none;
+}
+.dashboard .chamarSenha .senhas .atendimentosBox .pessoa .nomePessoa {
+  display: flex;
+  gap: 20px;
+}
+.dashboard .chamarSenha .senhas .atendimentosBox .pessoa .nomePessoa .icon {
+  padding: 25px;
+  background-color: #4381c1;
+  color: #f6f8fc;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.Visor {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  color: #4e4b5c;
+}
+.Visor .bg {
+  width: 65%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.Visor .conteudo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 35%;
+  padding: 5%;
+  align-items: center;
+}
+.Visor .conteudo .senhaContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #4381c1;
+  color: white;
+  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  gap: 50px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.Visor .conteudo .senhaContainer .tempoMedio {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.Visor .conteudo .senhaContainer .tempoMedio p {
+  font-size: 15px;
+  font-weight: 500;
+}
+.Visor .conteudo .senhaContainer .tempoMedio h1 {
+  font-size: 45px;
+}
+.Visor .conteudo .senhaContainer .senhaVisor {
+  display: flex;
+  flex-direction: column;
+}
+.Visor .conteudo .senhaContainer .senhaVisor p {
+  font-size: 25px;
+}
+.Visor .conteudo .senhaContainer .senhaVisor h1 {
+  font-size: 70px;
+}
+.Visor .conteudo .ultimasSenhasContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+.Visor .conteudo .ultimasSenhasContainer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.Visor .conteudo .ultimasSenhasContainer li {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgb(187, 187, 187);
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+.Visor .conteudo .ultimasSenhasContainer li p,
+.Visor .conteudo .ultimasSenhasContainer li strong {
+  font-size: 23px;
+}
+.Visor .conteudo .ultimasSenhasContainer li p {
+  font-weight: 300;
+}
+.Visor .conteudo .ultimasSenhasContainer li strong {
+  color: #4381c1;
+}
+.Visor .logo {
+  width: 100px;
+  position: relative;
+}/*# sourceMappingURL=style.css.map */
